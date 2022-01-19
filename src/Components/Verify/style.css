@@ -16,6 +16,7 @@ body {
 }
 
 .main {
+  width: 110%;
   background-color: #fff;
   border: 3px #000 solid;
   border-radius: 10px;
