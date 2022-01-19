@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -14,33 +16,12 @@ body {
 }
 
 .main {
-  width: 111%;
-  height: 450px;
   background-color: #fff;
   border: 3px #000 solid;
   border-radius: 10px;
-  padding: 30px px;
+  padding: 30px;
   max-width: 1000px;
   text-align: center;
-}
-
-h2 {
-  display: block;
-  font-size: 1.5em;
-  margin-block-start: 1.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  color: gray;
 }
 
 .verify-container {
@@ -62,12 +43,18 @@ p {
   -moz-appearance: textfield;
 }
 
-.number:valid {
-  border-color: #3498db;
-  box-shadow: 0 10px 10px -5px rgb(0 0 0 / 25%);
+.number::-webkit-outer-spin-button,
+.number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.infomation {
+.number:valid {
+  border-color: #3498db;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.25);
+}
+
+.information {
   background-color: #eaeaea;
   display: inline-block;
   padding: 10px;
@@ -75,4 +62,16 @@ p {
   max-width: 400px;
   color: #777;
   border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .verify-container {
+    flex-wrap: wrap;
+  }
+
+  .number {
+    font-size: 60px;
+    height: 80px;
+    max-width: 70px;
+  }
 }

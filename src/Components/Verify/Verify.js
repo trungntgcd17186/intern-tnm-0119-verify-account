@@ -87,7 +87,7 @@ function Verify(props) {
         ></input>
       </div>
       <div>
-        <small class="infomation">
+        <small class="information">
           This is design only. We didn't actually send you an email as we don't
           have your email, right?
         </small>
