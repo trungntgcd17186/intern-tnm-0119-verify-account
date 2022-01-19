@@ -9,24 +9,27 @@ function Verify(props) {
   };
   const handleOnKeyDown = (e) => {
     //Reset giá trị trước khi nhấn nút nếu nó đang được người dùng target để thay đổi giá trị cho input.
-    if (e.target) {
+    if (e.target && e.keyCode >= 48 && e.keyCode <= 57) {
       e.target.value = "";
     }
 
-    //Lắng nghe sự kiện người dùng nhấn nút backspace
-    if (e.keyCode === 8) {
-      e.target.previousSibling.focus();
+    //Lắng nghe sự kiện người dùng nhấn nút backspace và delete để gán giá trị.
+    if (e.keyCode === 8 || e.keyCode === 46) {
+      e.target.value = "";
     }
 
-    //Lắng nghe sự kiện người dùng nhấn nút delete
-    if (e.keyCode === 46) {
+    //Lắng nghe sự kiện người dùng nhấn nút backspace và delete để lùi input.
+    if (e.keyCode === 8 || e.keyCode === 46) {
       e.target.previousSibling.focus();
     }
   };
 
-  //Ngăn sự kiện nút backspace gây lỗi.
+  //Ngăn sự kiện nút backspace, nút phẩy, nút chấm, nút chấm hỏi/xuyệt gây lỗi.
   window.onkeydown = function (event) {
-    if (event.which === 8) {
+    if (
+      (event.which === 8 && event.which !== 0 && event.which < 48) ||
+      event.which > 57
+    ) {
       event.preventDefault();
     }
   };
@@ -44,6 +47,7 @@ function Verify(props) {
       <div className="verify-container">
         <input
           className="number"
+          type="number"
           maxLength={1}
           placeholder="0"
           onKeyDown={handleOnKeyDown}
@@ -51,6 +55,7 @@ function Verify(props) {
           autoFocus={true}
         ></input>
         <input
+          type="number"
           className="number"
           maxLength={1}
           placeholder="0"
@@ -58,6 +63,7 @@ function Verify(props) {
           onChange={handleFocus}
         ></input>
         <input
+          type="number"
           className="number"
           maxLength={1}
           placeholder="0"
@@ -65,6 +71,7 @@ function Verify(props) {
           onChange={handleFocus}
         ></input>
         <input
+          type="number"
           className="number"
           maxLength={1}
           placeholder="0"
@@ -72,6 +79,7 @@ function Verify(props) {
           onChange={handleFocus}
         ></input>
         <input
+          type="number"
           className="number"
           maxLength={1}
           placeholder="0"
@@ -79,6 +87,7 @@ function Verify(props) {
           onChange={handleFocus}
         ></input>
         <input
+          type="number"
           className="number"
           maxLength={1}
           placeholder="0"
