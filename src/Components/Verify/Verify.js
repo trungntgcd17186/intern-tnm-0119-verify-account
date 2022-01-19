@@ -8,10 +8,29 @@ function Verify(props) {
     }
   };
   const handleOnKeyDown = (e) => {
+    //Reset giá trị trước khi nhấn nút nếu nó đang được người dùng target để thay đổi giá trị cho input.
     if (e.target) {
       e.target.value = "";
     }
+
+    //Lắng nghe sự kiện người dùng nhấn nút backspace
+    if (e.keyCode === 8) {
+      e.target.previousSibling.focus();
+    }
+
+    //Lắng nghe sự kiện người dùng nhấn nút delete
+    if (e.keyCode === 46) {
+      e.target.previousSibling.focus();
+    }
   };
+
+  //Ngăn sự kiện nút backspace gây lỗi.
+  window.onkeydown = function (event) {
+    if (event.which === 8) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div className="main">
       <div>
